@@ -1,4 +1,4 @@
-rankall <- function(outcome, num == "best") {
+rankall <- function(outcome, num = "best") {
   
   ## Read outcome data
   data <- read.csv("outcome-of-care-measures.csv", colClasses = "character")
@@ -46,6 +46,9 @@ rankall <- function(outcome, num == "best") {
       } 
       else if (num == "best") {
         newnum <- 1
+      }
+      else {
+        newnum <- num
       }
     # Creating each row for final DF
     tmp <- data.frame(StateData[newnum, "Hospital.Name"], Statelist[i])
